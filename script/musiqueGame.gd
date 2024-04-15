@@ -1,5 +1,6 @@
 extends Control
 
+@export var world : GameManager
 var j = 0
 var presse = false
 var musiqueOn = false
@@ -7,7 +8,7 @@ var musiqueOn = false
 func _process(delta):
 	j += delta
 	if j >=0.74 and presse and !musiqueOn:
-		$AudioStreamPlayer2D.play()
+		$MusiqueCombat.playing = true
 		musiqueOn = true
 	elif !presse:
 		j = 0

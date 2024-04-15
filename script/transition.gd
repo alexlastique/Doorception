@@ -12,17 +12,6 @@ func _ready():
 func _process(delta):
 	pass
 
-#func _on_transition_body_entered(body):
-	#if body.name=="player":
-		#if world.current_world.name=="dongeon":
-			#world.scene = preload("res://scene/village.tscn")
-			#world.current_world = world.scene.instantiate()
-			#world.add_child(world.current_world)
-		#elif world.current_world.name=="village":
-			#world.scene = preload("res://scene/dongeon.tscn")
-			#world.current_world = world.scene.instantiate()
-			#world.add_child(world.current_world)
-
 
 func _on_transition_to_village_body_entered(body):
 	if body.name=="player":

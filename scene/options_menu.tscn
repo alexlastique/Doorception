@@ -294,6 +294,8 @@ theme_override_constants/separation = 20
 
 [node name="sound" type="HSlider" parent="Sound/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+min_value = -24.0
+max_value = 2.08165e-12
 
 [node name="Cancel" type="Button" parent="Sound/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2

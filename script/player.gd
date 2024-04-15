@@ -40,13 +40,14 @@ func _physics_process(delta):
 		
 		if velocity.length() > 0:
 			$AnimatedSprite2D.animation = "run"
-			$AnimatedSprite2D.flip_h = velocity.x < 0
+			$AnimatedSprite2D.flip_h = velocity.x > 0
 		else:
 			$AnimatedSprite2D.animation = "default"
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("mob"):
 		combat.mob = body
+		$musique_ambience.stream_paused = true
 		main.inFight = true;
 
 

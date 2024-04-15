@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgfpjoak248yt"]
+[gd_scene load_steps=20 format=3 uid="uid://cgfpjoak248yt"]
 
 [ext_resource type="Texture2D" uid="uid://bvgc55n0r1buh" path="res://asset/image/Eurydice_Icone.png" id="1_5d2qr"]
 [ext_resource type="Script" path="res://script/combat.gd" id="1_rsh6e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpbgpkicrml1m" path="res://asset/image/fantome.png" id="3_d3qm5"]
 [ext_resource type="Texture2D" uid="uid://cllbrolrfgpkc" path="res://asset/image/guitaremap.png" id="5_hty7w"]
 [ext_resource type="AudioStream" uid="uid://8miycquffx8r" path="res://asset/son/Enthousiaste_002.mp3" id="6_nesqr"]
+[ext_resource type="Script" path="res://script/musique_ambience.gd" id="8_eeqde"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iv8a0"]
 atlas = ExtResource("2_erlfn")
@@ -133,7 +134,10 @@ scale = Vector2(1.3275, 0.80875)
 texture = ExtResource("5_hty7w")
 centered = false
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+[node name="MusiqueCombat" type="AudioStreamPlayer2D" parent="Control"]
+position = Vector2(143, 311)
 stream = ExtResource("6_nesqr")
+volume_db = 1.0
+script = ExtResource("8_eeqde")
 
 [connection signal="pressed" from="Button" to="Control" method="_on_button_pressed"]

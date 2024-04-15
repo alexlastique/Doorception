@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player : CharacterBody2D = $'../player'
 
 var speed : int = 300
-var mobLoot = {"PV":10,"loot":1,"attack":1}
+var mobLoot = {"PV":10,"loot":1,"attack":10}
 
 @onready var navigation_agent : NavigationAgent2D = $Navigation/NavigationAgent2D
 func _ready():

@@ -38,7 +38,7 @@ var inFight : bool = false:
 var scene
 func _ready():
 	scene = preload("res://scene/village.tscn")
-	
+
 var current_world;
 func _on_start_game(is_game_started):
 	if is_game_started:
@@ -57,6 +57,16 @@ func _change_map(destination_world : String):
 		scene_futur = preload("res://scene/dongeon.tscn")
 	current_world = scene_futur.instantiate()
 	add_child(current_world)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if get_node("ath/ProgressBar").value == 0:
+		print("You Lose")
+		get_tree().quit()
+	if int(get_node("ath/piece/Control/Label").text) >= 10:
+		print("You Win")
+		get_tree().quit()
 
 func _input(event : InputEvent):
 	if event.is_action_pressed("ui_home") and !optionsOpen and inGame:

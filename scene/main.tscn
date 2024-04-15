@@ -75,7 +75,7 @@ offset_right = 360.0
 offset_bottom = 79.0
 theme = ExtResource("8_f3u34")
 step = 1.0
-value = 75.0
+value = 100.0
 metadata/_edit_use_anchors_ = true
 
 [node name="piece" type="AnimatedSprite2D" parent="ath"]

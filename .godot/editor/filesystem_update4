@@ -1,12 +1,9 @@
-res://scene/dongeon.tscn
-res://asset/new_theme.tres
 res://scene/main.tscn
-res://script/world.gd
+res://asset/new_theme.tres
 res://scene/combat.tscn
 res://scene/menu.tscn
 res://scene/player.tscn
 res://scene/pause_menu.tscn
 res://scene/options_menu.tscn
+res://scene/dongeon.tscn
 res://scene/village.tscn
-res://script/player.gd
-res://script/transition.gd

@@ -1,18 +1,17 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 
 var volume
 
+func _ready():
+	volume = get_node("/root/main/CanvasLayer/options_menu/Sound/Panel/VBoxContainer/VBoxContainer2/sound")
+	load_musique()
+	volume.value = volume_db
+
+
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
-	load_musique()
-
-func _on_volume_value_changed(value):
-	volume = value
-	
-func _on_volume_drag_ended(value_changed):
-	if (volume!=null):
-		set_volume_db(volume)
-		save_musique(volume)
+	set_volume_db(volume.value)
+	save_musique(volume.value)
 
 func save_musique(volume):
 	var save_dict = {
@@ -42,7 +41,7 @@ func load_musique():
 			var touche
 			touche = node_data[i]
 			if i == "musique":
-				set_volume_db(touche)
+				volume.value = touche
 
 
 func _on_finished():

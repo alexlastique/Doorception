@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://by5k8ocu6hkxp"]
+[gd_scene load_steps=12 format=3 uid="uid://by5k8ocu6hkxp"]
 
 [ext_resource type="Texture2D" uid="uid://jfmboeq4getq" path="res://asset/image/volcanoe_tiles.png" id="1_678pc"]
 [ext_resource type="PackedScene" uid="uid://cbw1fr1ssv1ex" path="res://scene/player.tscn" id="2_kwbxn"]
 [ext_resource type="Texture2D" uid="uid://dlpsumvc0sqj3" path="res://asset/image/volcanoe_assets.png" id="2_vj3ru"]
 [ext_resource type="Script" path="res://script/transition.gd" id="4_3qxdy"]
+[ext_resource type="PackedScene" uid="uid://bcjujl03aj76i" path="res://scene/prefab/ghost.tscn" id="5_rdm60"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_svrb2"]
 vertices = PackedVector2Array(258, 153, 300, 155, 365, 177, 322, 178, 253, 178, 176, 176, 185, 171, 316, 336, 367, 273, 373, 270, 413, 270, 452, 337, 322, 498, 323, 515, 306, 515, 286, 507, 286, 436, 414, 221, 450, 161, 413, 226, 413, 178, 372, 178, 369, 208, 365, 204, 317, 276, 325, 271, 364, 242, 369, 243, 387, 221, 385, 226, 605, 141, 657, 170, 479, 169, 480, 161, 550, 141, 316, 136, 315, 123, 452, 123, 452, 143, 386, 243, 349, 228, 349, 223, 350, 205, 653, 10, 659, 10, 653, 124, 231, 138, 259, 140, 387, 208, 349, 242, 86, 362, 134, 362, 134, 378, 108, 372, 150, 394, 262, 394, 262, 410, 252, 419, 163, 419, 141, 405, 294, 410, 294, 425, 253, 433, 310, 458, 326, 458, 326, 490, 390, 506, 406, 506, 406, 538, 394, 523, 419, 538, 419, 582, 396, 582, 375, 499, 390, 491, 337, 490, 310, 426, 198, 507, 306, 530, 159, 530, 156, 515, 195, 494, 181, 494, 45, 257, 29, 257, 29, 250, 51, 255, 300, 136, 479, 132, 479, 130, 548, 130, 186, 123, 229, 123, 254, 274, 254, 225, 321, 224, 54, 282, 70, 283, 70, 330, 606, 125, 150, 387, 108, 402, 164, 477, 179, 478, 141, 510, 148, 378, 78, 368, 86, 331, 75, 339, 82, 330, 45, 335, 323, 216, 228, 178, 224, 209, 172, 202, 141, 209, 147, 206, 140, 195, 147, 176, 138, 170, 136, 189, 116, 195, 110, 189, 109, 249, 113, 255)
@@ -9291,7 +9292,6 @@ navigation_polygon = SubResource("NavigationPolygon_svrb2")
 [node name="Base Map" type="TileMap" parent="NavigationRegion2D"]
 z_index = -2
 texture_filter = 1
-scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_thoif")
 format = 2
 layer_0/name = "Secret path"
@@ -9362,6 +9362,30 @@ shape = SubResource("RectangleShape2D_d2jr6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transition to village"]
 position = Vector2(4630, 89)
 shape = SubResource("RectangleShape2D_vxqr3")
+
+[node name="Ghost" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(2599, 1621)
+
+[node name="Ghost2" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(1149, 2865)
+
+[node name="Ghost3" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(1136, 3387)
+
+[node name="Ghost4" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(1898, 3663)
+
+[node name="Ghost5" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(1951, 3014)
+
+[node name="Ghost6" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(478, 2261)
+
+[node name="Ghost7" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(2726, 2160)
+
+[node name="Ghost8" parent="." instance=ExtResource("5_rdm60")]
+position = Vector2(1968, 1700)
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered_hide"]
 [connection signal="body_entered" from="Area2D2" to="player" method="_on_area_2d_body_entered_show"]
