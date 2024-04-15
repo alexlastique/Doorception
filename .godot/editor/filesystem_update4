@@ -5,5 +5,7 @@ res://scene/menu.tscn
 res://scene/player.tscn
 res://scene/pause_menu.tscn
 res://scene/options_menu.tscn
-res://scene/dongeon.tscn
 res://scene/village.tscn
+res://script/transition.gd
+res://scene/prefab/ghost.tscn
+res://script/Ghost.gd

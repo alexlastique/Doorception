@@ -4,18 +4,20 @@ extends CharacterBody2D
 
 var speed : int = 300
 var mobLoot = {"PV":10,"loot":1,"attack":10}
+var spawn_pos
 
 @onready var navigation_agent : NavigationAgent2D = $Navigation/NavigationAgent2D
 func _ready():
 	$AnimatedSprite2D.play()
+	spawn_pos = self.position
 
 func _physics_process(delta):
 	var direcion = Vector2.ZERO
 	if (sqrt(pow(player.position.x - position.x, 2) + pow(player.position.y - position.y, 2))<700):
-		direcion = (navigation_agent.get_next_path_position() - global_position).normalized()
+		direcion = (navigation_agent.get_next_path_position() - global_position)
 	else :
-		direcion = Vector2()
-	velocity = direcion * speed
+		direcion = (spawn_pos - global_position)
+	velocity = direcion.normalized() * speed
 	
 	move_and_slide()
 	

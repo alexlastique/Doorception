@@ -20,4 +20,4 @@ func _on_transition_to_village_body_entered(body):
 
 func _on_transition_to_dongeon_body_entered(body):
 	if body.name=="player":
-		world._change_map("dongeon")
+		world._change_map("dungeon")

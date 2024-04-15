@@ -53,8 +53,8 @@ func _change_map(destination_world : String):
 	var scene_futur
 	if destination_world=="village":
 		scene_futur = preload("res://scene/village.tscn")
-	if destination_world=="dongeon":
-		scene_futur = preload("res://scene/dongeon.tscn")
+	if destination_world=="dungeon":
+		scene_futur = preload("res://scene/donjon.tscn")
 	current_world = scene_futur.instantiate()
 	add_child(current_world)
 
