@@ -11,8 +11,10 @@ func _ready():
 
 func _physics_process(delta):
 	var direcion = Vector2.ZERO
-	
-	direcion = (navigation_agent.get_next_path_position() - global_position).normalized()
+	if (sqrt(pow(player.position.x - position.x, 2) + pow(player.position.y - position.y, 2))<700):
+		direcion = (navigation_agent.get_next_path_position() - global_position).normalized()
+	else :
+		direcion = Vector2()
 	velocity = direcion * speed
 	
 	move_and_slide()
