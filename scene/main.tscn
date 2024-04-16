@@ -127,6 +127,7 @@ visible = false
 offset_right = 1152.0
 offset_bottom = 810.0
 stream = ExtResource("10_xp4kc")
+autoplay = true
 expand = true
 
 [node name="gameOver" type="VideoStreamPlayer" parent="CanvasLayer"]
@@ -134,6 +135,7 @@ visible = false
 offset_right = 1152.0
 offset_bottom = 810.0
 stream = ExtResource("11_bsuu4")
+autoplay = true
 expand = true
 
 [connection signal="openOptions" from="." to="CanvasLayer/PauseMenu" method="_on_main_open_options"]
@@ -144,3 +146,5 @@ expand = true
 [connection signal="startGame" from="." to="ath" method="_on_main_start_game"]
 [connection signal="startGame" from="." to="CanvasLayer/Menu" method="_on_main_start_game"]
 [connection signal="toggleGamePaused" from="." to="CanvasLayer/PauseMenu" method="_on_main_toggle_game_paused"]
+[connection signal="finished" from="CanvasLayer/win" to="." method="_on_win_finished"]
+[connection signal="finished" from="CanvasLayer/gameOver" to="." method="_on_game_over_finished"]
