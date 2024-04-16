@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://gvahboxykdv1"]
+[gd_scene load_steps=19 format=3 uid="uid://gvahboxykdv1"]
 
 [ext_resource type="Script" path="res://script/world.gd" id="1_838lq"]
 [ext_resource type="Script" path="res://script/ath.gd" id="8_7jwdo"]
 [ext_resource type="Theme" uid="uid://d2winwbx7no1c" path="res://asset/new_theme.tres" id="8_f3u34"]
 [ext_resource type="PackedScene" uid="uid://72dqvj3wq7oy" path="res://scene/menu.tscn" id="9_2csx5"]
 [ext_resource type="Texture2D" uid="uid://b1yqcnpvgho3q" path="res://asset/image/piece.png" id="9_sq2ig"]
+[ext_resource type="VideoStream" path="res://asset/video/Video_win_Eurydice.ogv" id="10_xp4kc"]
+[ext_resource type="VideoStream" path="res://asset/video/Video_game_over_Eurydice-1.ogv" id="11_bsuu4"]
 [ext_resource type="FontFile" uid="uid://01x17hllpvfv" path="res://asset/PixelGameFont.ttf" id="11_u3g7u"]
 [ext_resource type="PackedScene" uid="uid://b2cpqeyyfr5e8" path="res://scene/pause_menu.tscn" id="12_6ptdj"]
 [ext_resource type="PackedScene" uid="uid://cgfpjoak248yt" path="res://scene/combat.tscn" id="15_8hbom"]
@@ -119,6 +121,20 @@ world = NodePath("../..")
 
 [node name="options_menu" parent="CanvasLayer" node_paths=PackedStringArray("world") instance=ExtResource("15_234vm")]
 world = NodePath("../..")
+
+[node name="win" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 810.0
+stream = ExtResource("10_xp4kc")
+expand = true
+
+[node name="gameOver" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 810.0
+stream = ExtResource("11_bsuu4")
+expand = true
 
 [connection signal="openOptions" from="." to="CanvasLayer/PauseMenu" method="_on_main_open_options"]
 [connection signal="openOptions" from="." to="CanvasLayer/Menu" method="_on_main_open_options"]

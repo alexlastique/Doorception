@@ -61,12 +61,16 @@ func _change_map(destination_world : String):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_node("ath/ProgressBar").value == 0:
+	if get_node("ath/ProgressBar").value == 00:
+		get_node("CanvasLayer/gameOver").show()
+		get_node("CanvasLayer/gameOver").play()
 		print("You Lose")
-		get_tree().quit()
+		#get_tree().quit()
 	if int(get_node("ath/piece/Control/Label").text) >= 10:
+		get_node("CanvasLayer/win").show()
+		get_node("CanvasLayer/win").play()
 		print("You Win")
-		get_tree().quit()
+		#get_tree().quit()
 
 func _input(event : InputEvent):
 	if event.is_action_pressed("ui_home") and !optionsOpen and inGame:
