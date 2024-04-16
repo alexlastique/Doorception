@@ -11,3 +11,5 @@ res://scene/prefab/ghost.tscn
 res://script/Ghost.gd
 res://script/ath.gd
 res://scene/donjon.tscn
+res://script/musique_ambience.gd
+res://script/combat.gd

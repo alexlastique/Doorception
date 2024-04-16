@@ -20,6 +20,8 @@ func _ready():
 func _process(delta):
 	if nbgagner+nbperdu==12:
 		world.inFight = false
+		get_node("Control").presse = false
+		get_node("Control").musiqueOn = false
 		if nbgagner>nbperdu:
 			piece = int(get_node("/root/main/ath/piece/Control/Label").text)+mob.mobLoot["loot"]
 		else:
