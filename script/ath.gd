@@ -11,3 +11,4 @@ func _on_main_start_game(is_game_started):
 		show()
 	else:
 		hide()
+		get_node("piece/Control/Label").text = "0"

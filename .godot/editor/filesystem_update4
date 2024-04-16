@@ -9,3 +9,5 @@ res://scene/village.tscn
 res://script/transition.gd
 res://scene/prefab/ghost.tscn
 res://script/Ghost.gd
+res://script/ath.gd
+res://scene/donjon.tscn

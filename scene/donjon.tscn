@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://8ysu30yvk6vi"]
+[gd_scene load_steps=9 format=3 uid="uid://8ysu30yvk6vi"]
 
+[ext_resource type="Script" path="res://script/transition.gd" id="1_4a0r5"]
 [ext_resource type="Texture2D" uid="uid://c4n37iglrbrx8" path="res://asset/image/volcanoe_tiles.png" id="1_cj73o"]
 [ext_resource type="PackedScene" uid="uid://cbw1fr1ssv1ex" path="res://scene/player.tscn" id="2_ftywu"]
 [ext_resource type="PackedScene" uid="uid://bcjujl03aj76i" path="res://scene/prefab/ghost.tscn" id="3_skh5v"]
@@ -235,8 +236,12 @@ terrain_set_0/terrain_0/name = "floor"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_g68k3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsjgp"]
+size = Vector2(510, 79.5)
+
 [node name="Donjon" type="Node2D"]
 process_mode = 1
+script = ExtResource("1_4a0r5")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_oif3n")
@@ -267,3 +272,12 @@ position = Vector2(1802, 8442)
 
 [node name="Ghost4" parent="." instance=ExtResource("3_skh5v")]
 position = Vector2(12965, 4624)
+
+[node name="transition to village" type="Area2D" parent="."]
+position = Vector2(10847, -2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transition to village"]
+shape = SubResource("RectangleShape2D_rsjgp")
+
+[connection signal="body_entered" from="transition to village" to="." method="_on_transition_to_village_body_entered"]
