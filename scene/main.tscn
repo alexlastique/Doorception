@@ -133,7 +133,7 @@ expand = true
 [node name="gameOver" type="VideoStreamPlayer" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 0, 1, 1)
-self_modulate = Color(1, 1, 1, 0.733333)
+self_modulate = Color(1, 1, 1, 0.784314)
 offset_right = 1152.0
 offset_bottom = 648.0
 stream = ExtResource("11_lhxmd")

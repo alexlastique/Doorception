@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cllbrolrfgpkc"
-path="res://.godot/imported/guitareMap.png-dec75a2b4ed6ca7293044aa7bbd301e0.ctex"
+path="res://.godot/imported/guitaremap.png-98287b1a87af2a293b8da47edd5802c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/image/guitareMap.png"
-dest_files=["res://.godot/imported/guitareMap.png-dec75a2b4ed6ca7293044aa7bbd301e0.ctex"]
+source_file="res://asset/image/guitaremap.png"
+dest_files=["res://.godot/imported/guitaremap.png-98287b1a87af2a293b8da47edd5802c2.ctex"]
 
 [params]
 

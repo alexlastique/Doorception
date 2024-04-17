@@ -1,15 +1,7 @@
 res://scene/main.tscn
 res://asset/new_theme.tres
-res://scene/combat.tscn
-res://scene/menu.tscn
 res://scene/player.tscn
-res://scene/pause_menu.tscn
-res://scene/options_menu.tscn
-res://scene/village.tscn
-res://script/transition.gd
 res://scene/prefab/ghost.tscn
-res://script/Ghost.gd
-res://script/ath.gd
+res://scene/village.tscn
 res://scene/donjon.tscn
-res://script/musique_ambience.gd
-res://script/combat.gd
+res://scene/combat.tscn
