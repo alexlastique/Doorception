@@ -1,0 +1,150 @@
+[gd_scene load_steps=19 format=3 uid="uid://gvahboxykdv1"]
+
+[ext_resource type="Script" path="res://script/world.gd" id="1_838lq"]
+[ext_resource type="Script" path="res://script/ath.gd" id="8_7jwdo"]
+[ext_resource type="Theme" uid="uid://d2winwbx7no1c" path="res://asset/new_theme.tres" id="8_f3u34"]
+[ext_resource type="PackedScene" uid="uid://72dqvj3wq7oy" path="res://scene/menu.tscn" id="9_2csx5"]
+[ext_resource type="Texture2D" uid="uid://b1yqcnpvgho3q" path="res://asset/image/piece.png" id="9_sq2ig"]
+[ext_resource type="VideoStream" path="res://asset/videos/Video_win_Eurydice.ogv" id="10_6i82t"]
+[ext_resource type="VideoStream" path="res://asset/videos/Video_game_over_Eurydice-1.ogv" id="11_lhxmd"]
+[ext_resource type="FontFile" uid="uid://01x17hllpvfv" path="res://asset/PixelGameFont.ttf" id="11_u3g7u"]
+[ext_resource type="PackedScene" uid="uid://b2cpqeyyfr5e8" path="res://scene/pause_menu.tscn" id="12_6ptdj"]
+[ext_resource type="PackedScene" uid="uid://cgfpjoak248yt" path="res://scene/combat.tscn" id="15_8hbom"]
+[ext_resource type="PackedScene" uid="uid://crius772ncji1" path="res://scene/options_menu.tscn" id="15_234vm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqqhu"]
+atlas = ExtResource("9_sq2ig")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fdvo"]
+atlas = ExtResource("9_sq2ig")
+region = Rect2(14, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14uad"]
+atlas = ExtResource("9_sq2ig")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7u7l"]
+atlas = ExtResource("9_sq2ig")
+region = Rect2(42, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhtkl"]
+atlas = ExtResource("9_sq2ig")
+region = Rect2(56, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vubd5"]
+atlas = ExtResource("9_sq2ig")
+region = Rect2(70, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrmxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqqhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fdvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14uad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7u7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhtkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vubd5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="main" type="Node"]
+process_mode = 3
+script = ExtResource("1_838lq")
+
+[node name="ath" type="CanvasLayer" parent="."]
+process_mode = 1
+script = ExtResource("8_7jwdo")
+
+[node name="ProgressBar" type="ProgressBar" parent="ath"]
+offset_left = 20.0
+offset_top = 27.0
+offset_right = 360.0
+offset_bottom = 79.0
+theme = ExtResource("8_f3u34")
+step = 1.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[node name="piece" type="AnimatedSprite2D" parent="ath"]
+texture_filter = 1
+position = Vector2(52, 151)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wrmxk")
+frame = 5
+frame_progress = 1.0
+
+[node name="Control" type="Control" parent="ath/piece"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 41.0
+offset_bottom = 7.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ath/piece/Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -4.0
+offset_right = 26.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("11_u3g7u")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Combat" parent="CanvasLayer" node_paths=PackedStringArray("world") instance=ExtResource("15_8hbom")]
+process_mode = 1
+world = NodePath("../..")
+
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("world") instance=ExtResource("12_6ptdj")]
+world = NodePath("../..")
+
+[node name="Menu" parent="CanvasLayer" node_paths=PackedStringArray("world") instance=ExtResource("9_2csx5")]
+world = NodePath("../..")
+
+[node name="options_menu" parent="CanvasLayer" node_paths=PackedStringArray("world") instance=ExtResource("15_234vm")]
+world = NodePath("../..")
+
+[node name="win" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+stream = ExtResource("10_6i82t")
+autoplay = true
+expand = true
+
+[node name="gameOver" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+stream = ExtResource("11_lhxmd")
+autoplay = true
+expand = true
+
+[connection signal="openOptions" from="." to="CanvasLayer/PauseMenu" method="_on_main_open_options"]
+[connection signal="openOptions" from="." to="CanvasLayer/Menu" method="_on_main_open_options"]
+[connection signal="openOptions" from="." to="CanvasLayer/options_menu" method="_on_main_open_options"]
+[connection signal="startFight" from="." to="CanvasLayer/Combat" method="_on_main_start_fight"]
+[connection signal="startGame" from="." to="." method="_on_start_game"]
+[connection signal="startGame" from="." to="ath" method="_on_main_start_game"]
+[connection signal="startGame" from="." to="CanvasLayer/Menu" method="_on_main_start_game"]
+[connection signal="toggleGamePaused" from="." to="CanvasLayer/PauseMenu" method="_on_main_toggle_game_paused"]
+[connection signal="finished" from="CanvasLayer/win" to="." method="_on_win_finished"]
+[connection signal="finished" from="CanvasLayer/gameOver" to="." method="_on_game_over_finished"]

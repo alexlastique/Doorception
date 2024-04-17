@@ -1,0 +1,11 @@
+{"ui_up":"InputEventKey: keycode=4194320 (Up), mods=none, physical=false, pressed=false, echo=false"}
+{"ui_down":"InputEventKey: keycode=4194322 (Down), mods=none, physical=false, pressed=false, echo=false"}
+{"ui_left":"InputEventKey: keycode=4194319 (Left), mods=none, physical=false, pressed=false, echo=false"}
+{"ui_right":"InputEventKey: keycode=4194321 (Right), mods=none, physical=false, pressed=false, echo=false"}
+{"ui_accept":"InputEventKey: keycode=4194309 (Enter), mods=none, physical=false, pressed=false, echo=false"}
+{"ui_cancel":"InputEventKey: keycode=4194305 (Escape), mods=none, physical=false, pressed=false, echo=false"}
+{"ui_home":"InputEventKey: keycode=4194305 (Escape), mods=none, physical=false, pressed=false, echo=false"}
+{"musique1":"InputEventKey: keycode=65 (A), mods=none, physical=false, pressed=false, echo=false"}
+{"musique2":"InputEventKey: keycode=90 (Z), mods=none, physical=false, pressed=false, echo=false"}
+{"musique3":"InputEventKey: keycode=69 (E), mods=none, physical=false, pressed=false, echo=false"}
+{"musique4":"InputEventKey: keycode=82 (R), mods=none, physical=false, pressed=false, echo=false"}

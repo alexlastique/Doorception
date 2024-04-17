@@ -1,0 +1,10 @@
+res://scene/combat.tscn::6cb6cf383d6a30b30a83788fc73b97e1::1710239593::res://.godot/exported/133200997/export-e4af548d28e1525f5e144866130c35d2-combat.scn
+res://scene/main.tscn::b441a0ddc9aa0410f7e01665ea1c5ee5::1710239593::res://.godot/exported/133200997/export-fa9c8ff5b16a5ec23280afa6577b07ee-main.scn
+res://scene/player.tscn::91da1fc8eb03f77f35c629f623dcda53::1710239594::res://.godot/exported/133200997/export-34afcb3bda2393b8f6a0cd71512aeb81-player.scn
+res://scene/menu.tscn::9e1bbb23633c3bee724281b39ecfa48f::1710239593::res://.godot/exported/133200997/export-425af8aabff62af1784d609241d4b88c-menu.scn
+res://asset/new_theme.tres::45565e484c414a6604352b21333bb3f7::1710171845::res://.godot/exported/133200997/export-8edc0999c7aae786ae5b76e4d44905a0-new_theme.res
+res://scene/prefab/ghost.tscn::f9c43ec66237ae3947414a739af36906::1710164323::res://.godot/exported/133200997/export-c3d76861a60cf4dbe21fcf8c7940613c-ghost.scn
+res://scene/dongeon.tscn::e729165de145a27bbd972e46169f48a0::1710239711::res://.godot/exported/133200997/export-73b7bf6efecefb439872495ccef93b88-dongeon.scn
+res://scene/options_menu.tscn::730fea39c7d3b7ec6a092178bb295464::1710239594::res://.godot/exported/133200997/export-4bd0f9a213d7bd7072eb6d9f22190e39-options_menu.scn
+res://scene/pause_menu.tscn::0c9b171ad26cb50cb43f6f3ed58239ab::1710239594::res://.godot/exported/133200997/export-f7c6872a4da50f9d7d9e5eb1d3b96772-pause_menu.scn
+res://scene/village.tscn::8b64e4a04460ec155370259cd52a91ea::1710239713::res://.godot/exported/133200997/export-8a6dfcf945769752b09f9b67c3c180fd-village.scn

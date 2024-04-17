@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://cgfpjoak248yt"]
+
+[ext_resource type="Texture2D" uid="uid://bvgc55n0r1buh" path="res://asset/image/Eurydice_Icone.png" id="1_5d2qr"]
+[ext_resource type="Script" path="res://script/combat.gd" id="1_rsh6e"]
+[ext_resource type="Script" path="res://script/musiqueGame.gd" id="2_1hyv2"]
+[ext_resource type="Texture2D" uid="uid://cdqfuscna24uc" path="res://asset/image/spritePlayer.png" id="2_erlfn"]
+[ext_resource type="Texture2D" uid="uid://bpbgpkicrml1m" path="res://asset/image/fantome.png" id="3_d3qm5"]
+[ext_resource type="Texture2D" uid="uid://cllbrolrfgpkc" path="res://asset/image/guitareMap.png" id="5_hty7w"]
+[ext_resource type="AudioStream" uid="uid://8miycquffx8r" path="res://asset/son/Enthousiaste_002.mp3" id="6_nesqr"]
+[ext_resource type="Script" path="res://script/musique_ambience.gd" id="8_eeqde"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv8a0"]
+atlas = ExtResource("2_erlfn")
+region = Rect2(0, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t73ia"]
+atlas = ExtResource("2_erlfn")
+region = Rect2(32, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsqk5"]
+atlas = ExtResource("2_erlfn")
+region = Rect2(64, 0, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eta18"]
+atlas = ExtResource("2_erlfn")
+region = Rect2(96, 0, 32, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgo7p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv8a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t73ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsqk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eta18")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thqem"]
+atlas = ExtResource("3_d3qm5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx358"]
+atlas = ExtResource("3_d3qm5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5h2i"]
+atlas = ExtResource("3_d3qm5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdvse"]
+atlas = ExtResource("3_d3qm5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h34k"]
+atlas = ExtResource("3_d3qm5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cjfcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thqem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx358")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5h2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdvse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h34k")
+}],
+"loop": true,
+"name": &"Ghost",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rsh6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = ExtResource("1_5d2qr")
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(222, 456)
+scale = Vector2(12.7812, 11.5938)
+sprite_frames = SubResource("SpriteFrames_rgo7p")
+flip_h = true
+
+[node name="mob" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(967, 242)
+scale = Vector2(22, 22)
+sprite_frames = SubResource("SpriteFrames_cjfcy")
+animation = &"Ghost"
+flip_h = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 798.0
+offset_top = 524.0
+offset_right = 1123.0
+offset_bottom = 605.0
+text = "play"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 406.0
+offset_right = 766.0
+offset_bottom = 649.0
+script = ExtResource("2_1hyv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(-104, 0)
+scale = Vector2(1.3275, 0.80875)
+texture = ExtResource("5_hty7w")
+centered = false
+
+[node name="MusiqueCombat" type="AudioStreamPlayer2D" parent="Control"]
+position = Vector2(143, 311)
+stream = ExtResource("6_nesqr")
+volume_db = 1.0
+script = ExtResource("8_eeqde")
+
+[connection signal="pressed" from="Button" to="Control" method="_on_button_pressed"]

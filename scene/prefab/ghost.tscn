@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcjujl03aj76i"]
+
+[ext_resource type="Script" path="res://script/Ghost.gd" id="1_d7v6y"]
+[ext_resource type="Texture2D" uid="uid://bpbgpkicrml1m" path="res://asset/image/fantome.png" id="2_pv2kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5vo4"]
+atlas = ExtResource("2_pv2kl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csnm6"]
+atlas = ExtResource("2_pv2kl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s486"]
+atlas = ExtResource("2_pv2kl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frotx"]
+atlas = ExtResource("2_pv2kl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsg2k"]
+atlas = ExtResource("2_pv2kl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4egx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5vo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csnm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s486")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frotx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsg2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7yxqw"]
+radius = 14.0
+height = 64.0
+
+[node name="Ghost" type="CharacterBody2D" groups=["mob"]]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_d7v6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4.5625, 4.5625)
+sprite_frames = SubResource("SpriteFrames_w4egx")
+frame_progress = 0.00989664
+offset = Vector2(2.08165e-12, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7yxqw")
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+
+[node name="Timer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

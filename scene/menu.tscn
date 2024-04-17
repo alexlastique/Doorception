@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://72dqvj3wq7oy"]
+
+[ext_resource type="Script" path="res://script/menu.gd" id="1_4aon0"]
+[ext_resource type="Texture2D" uid="uid://bvgc55n0r1buh" path="res://asset/image/Eurydice_Icone.png" id="1_ji0ol"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4aon0")
+
+[node name="Backround" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 234)
+scale = Vector2(18, 18)
+texture = ExtResource("1_ji0ol")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = 156.0
+offset_right = -646.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Jouer" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "Jouer"
+
+[node name="Options" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
