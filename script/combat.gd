@@ -2,7 +2,7 @@ extends Node2D
 
 @export var world : GameManager
 @onready var player : CharacterBody2D
-@onready var musiqueCombat = get_node("/root/main/CanvasLayer/Combat/Control/MusiqueCombat")
+@onready var musiqueGame = get_node("/root/main/CanvasLayer/Combat/Control/MusiqueCombat")
 @onready var PV = get_node("/root/main/ath/ProgressBar")
 var nbgagner = 0
 var nbperdu = 0
@@ -13,7 +13,7 @@ func _ready():
 	hide()
 	$player.play("default")
 	var volume = get_node("/root/main/CanvasLayer/options_menu/Sound/Panel/VBoxContainer/VBoxContainer2/sound")
-	musiqueCombat.set_volume_db(volume.value)
+	musiqueGame.set_volume_db(volume.value)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,9 +29,9 @@ func _process(delta):
 			PV.value -= mob.mobLoot["attack"] 
 		get_node("/root/main/ath/piece/Control/Label").text = str(piece)
 		get_node("/root/main/"+world.current_world.name+"/player/musique_ambience").stream_paused = false
-		musiqueCombat.playing = false
+		musiqueGame.playing = false
 		get_node("/root/main/"+world.current_world.name+"/" + mob.name).queue_free()
-		musiqueCombat.playing = false
+		musiqueGame.playing = false
 		nbgagner = 0
 		nbperdu = 0
 

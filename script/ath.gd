@@ -12,3 +12,4 @@ func _on_main_start_game(is_game_started):
 	else:
 		hide()
 		get_node("piece/Control/Label").text = "0"
+		get_node("ProgressBar").value = 100

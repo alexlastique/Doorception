@@ -5,8 +5,8 @@
 [ext_resource type="Theme" uid="uid://d2winwbx7no1c" path="res://asset/new_theme.tres" id="8_f3u34"]
 [ext_resource type="PackedScene" uid="uid://72dqvj3wq7oy" path="res://scene/menu.tscn" id="9_2csx5"]
 [ext_resource type="Texture2D" uid="uid://b1yqcnpvgho3q" path="res://asset/image/piece.png" id="9_sq2ig"]
-[ext_resource type="VideoStream" path="res://asset/video/Video_win_Eurydice.ogv" id="10_xp4kc"]
-[ext_resource type="VideoStream" path="res://asset/video/Video_game_over_Eurydice-1.ogv" id="11_bsuu4"]
+[ext_resource type="VideoStream" path="res://asset/videos/Video_win_Eurydice.ogv" id="10_6i82t"]
+[ext_resource type="VideoStream" path="res://asset/videos/Video_game_over_Eurydice-1.ogv" id="11_lhxmd"]
 [ext_resource type="FontFile" uid="uid://01x17hllpvfv" path="res://asset/PixelGameFont.ttf" id="11_u3g7u"]
 [ext_resource type="PackedScene" uid="uid://b2cpqeyyfr5e8" path="res://scene/pause_menu.tscn" id="12_6ptdj"]
 [ext_resource type="PackedScene" uid="uid://cgfpjoak248yt" path="res://scene/combat.tscn" id="15_8hbom"]
@@ -125,16 +125,16 @@ world = NodePath("../..")
 [node name="win" type="VideoStreamPlayer" parent="CanvasLayer"]
 visible = false
 offset_right = 1152.0
-offset_bottom = 810.0
-stream = ExtResource("10_xp4kc")
+offset_bottom = 648.0
+stream = ExtResource("10_6i82t")
 autoplay = true
 expand = true
 
 [node name="gameOver" type="VideoStreamPlayer" parent="CanvasLayer"]
 visible = false
 offset_right = 1152.0
-offset_bottom = 810.0
-stream = ExtResource("11_bsuu4")
+offset_bottom = 648.0
+stream = ExtResource("11_lhxmd")
 autoplay = true
 expand = true
 

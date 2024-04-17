@@ -58,13 +58,12 @@ func _change_map(destination_world : String):
 	current_world = scene_futur.instantiate()
 	add_child(current_world)
 
-
-var value
-var result
+var value;
+var result;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if get_node("ath/ProgressBar").value == 90:
-		value = "gameOver"
+		value = "game over"
 	if int(get_node("ath/piece/Control/Label").text) >= 1:
 		value = "win"
 	if !result:
@@ -72,11 +71,10 @@ func _process(delta):
 			get_node("CanvasLayer/win").show()
 			get_node("CanvasLayer/win").play()
 			result = true
-		elif value == "gameOver":
+		elif value == "game over":
 			get_node("CanvasLayer/gameOver").show()
 			get_node("CanvasLayer/gameOver").play()
 			result = true
-		
 
 func _input(event : InputEvent):
 	if event.is_action_pressed("ui_home") and !optionsOpen and inGame:
@@ -85,15 +83,15 @@ func _input(event : InputEvent):
 
 func _on_win_finished():
 	if result:
-		get_tree().quit()
+		get_node("CanvasLayer/win").hide()
+		inGame = false
+		result = false
+		value = ""
 
 
 func _on_game_over_finished():
 	if result:
-		current_world.queue_free()
+		inGame = false
 		result = false
 		value = ""
-		get_node("ath/ProgressBar").value = 100
-		get_node("ath/piece/Control/Label").text = "0"
 		get_node("CanvasLayer/gameOver").hide()
-		get_node("CanvasLayer/Menu").show()
